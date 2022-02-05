@@ -1,0 +1,7 @@
+No specific order:
+
+1. Fight with media queries and padding on parent containers @ larger screens.
+
+> Images within containers should NOT be impacted by padding
+
+> possibly rethink padding class being attached in HTML?
