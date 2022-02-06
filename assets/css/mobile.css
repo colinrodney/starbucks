@@ -118,6 +118,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
+  
 } */
 
 .main-content__excitement {
@@ -125,10 +126,14 @@ body {
   /* padding: var(--container-padding); added padding class to HTML */
 }
 
+/* .main-content__excitement--padded-img {
+  padding: var(--container-padding);
+} */
+
 .main-content__text {
-  /* border: 1px solid #eee; */
-  margin-top: 30px;
   text-align: center;
+  /* be careful of the text area in the excitement area!! */
+  padding: var(--container-padding);
 }
 
 .main-content__text--header {
@@ -171,7 +176,6 @@ body {
 /* mood */
 .main-content__mood {
   background-color: var(--sb-dark-green);
-  padding-bottom: 25px;
 }
 
 /* call to action button styles */
@@ -191,7 +195,6 @@ body {
 /* favorites */
 .main-content__favorites {
   background-color: var(--sb-light-green);
-  padding-bottom: 25px;
 }
 
 .favorites {
@@ -207,7 +210,6 @@ body {
 /* coffee delivered/ uber-eats section */
 .main-content__coffee-delivered {
   background-color: var(--sb-light-green);
-  padding-bottom: 25px;
 }
 
 .coffee-delivered {
@@ -223,7 +225,6 @@ body {
 /* starbucks rewards */
 .main-content__rewards {
   background-color: var(--sb-light-green);
-  padding-bottom: 25px;
 }
 
 .rewards {
@@ -239,7 +240,6 @@ body {
 /* black history month */
 .main-content__black-history-month {
   background-color: var(--sb-light-green);
-  padding-bottom: 25px;
 }
 
 .black-history-month {
@@ -253,6 +253,15 @@ body {
 }
 
 /* disclaimer */
+
+.main-content__disclaimer {
+  padding: var(--container-padding);
+}
+
+.main-content__disclaimer-text .paragraph-1 {
+  margin-bottom: 108px;
+}
+
 .main-content__disclaimer p,
 .main-content__disclaimer-action,
 .main-content__disclaimer-action:hover {
