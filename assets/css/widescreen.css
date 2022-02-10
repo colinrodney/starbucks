@@ -9,3 +9,12 @@
     grid-column-gap: 30px;
   }
 }
+
+/* bottom navigation section titles
+which contain font-awesome icons */
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
