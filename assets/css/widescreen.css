@@ -20,12 +20,3 @@
     display: none;
   }
 }
-
-/* bottom navigation section titles
-which contain font-awesome icons */
-.section-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-}
