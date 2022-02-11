@@ -8,6 +8,17 @@
   .grid-gap {
     grid-column-gap: 30px;
   }
+
+  /* break bottom navigation area into five column grid */
+  .bottom-nav {
+    border: 2px solid red;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .dropdown-menu-toggle {
+    display: none;
+  }
 }
 
 /* bottom navigation section titles
@@ -17,10 +28,4 @@ which contain font-awesome icons */
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-}
-
-.bottom-nav {
-  border: 2px solid red;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
 }
