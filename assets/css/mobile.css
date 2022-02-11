@@ -286,6 +286,8 @@ body {
 /* bottom navigation section titles
 which contain font-awesome icons */
 .section-title {
+  font-size: 20px;
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: space-between;
