@@ -18,3 +18,9 @@ which contain font-awesome icons */
   justify-content: space-between;
   cursor: pointer;
 }
+
+.bottom-nav {
+  border: 2px solid red;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
