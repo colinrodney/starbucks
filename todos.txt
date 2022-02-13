@@ -5,3 +5,14 @@ No specific order:
 > Images within containers should NOT be impacted by padding
 
 > possibly rethink padding class being attached in HTML?
+
+
+02/13/2022
+
+Figure out what course of action to take w/ jquery:
+
+  > run from JavaScript when certain conditions present or just leave it enabled
+
+  > Explore window.matchMedia() method (w3 schools/ MDN)
+
+  > Work w/ dev starter kit@ codingphase.com (not related to this project.)
