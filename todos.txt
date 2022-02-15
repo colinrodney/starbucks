@@ -16,3 +16,14 @@ Figure out what course of action to take w/ jquery:
   > Explore window.matchMedia() method (w3 schools/ MDN)
 
   > Work w/ dev starter kit@ codingphase.com (not related to this project.)
+
+02/15/2022
+
+> @ page load jquery does not run
+
+> jQuery runs only if the viewport width is less than 768px
+
+  When width < 768 px:
+    1. trigger jQuery
+    2. Hide section elements
+    3. Show section element toggle
