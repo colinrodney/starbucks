@@ -16,6 +16,10 @@
     grid-template-columns: repeat(5, 1fr);
   }
 
+  .section-elements {
+    display: initial;
+  }
+
   .dropdown-menu-toggle {
     display: none;
   }

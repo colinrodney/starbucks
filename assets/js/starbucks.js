@@ -1,79 +1,73 @@
-/*DO NOT DELETE THIS- THIS IS WORKING JQUERY CODE TO BE REFACTORED!!* */
-// $(function () {
-//   $(".section-title").css({
-//     cursor: "pointer",
-//   });
-//   // hide .section elements
-//   $(".section-elements").hide();
-
-//   // slide down section elements when section title clicked/toggled
-//   $(".about-us__title").click(function () {
-//     $(".about-us__elements").slideToggle(function () {});
-//   });
+// $(window).on({
+//   load: function () {
+//     const WIDTH = window.matchMedia("(max-width: 767px)");
+//     if (WIDTH.matches) {
+//       console.log("mobile");
+//     } else {
+//       console.log("non-mobile");
+//     }
+//   },
 // });
 
-// function to manage behavior @ widths >768px
-function wideScreen(browserWidth) {
-  console.log(">= 768px...");
-  $(function () {
-    $(".section-elements").show();
-  });
-}
-
-/*init function runs mobile first styles + jquery library @ page laod .
-- will call the wideScreenfunction if browserWidth does not meet condition
-*/
-function init(browserWidth) {
-  // run jqeury - ONLY if browser width to be less than 768px!
-  if (browserWidth.matches) {
-    console.log("browser < 768px");
-    // run jquery + hide section elements
+function init(mql) {
+  // if screen loads @ less than 768px
+  if (mql.matches) {
+    console.log("< 768px");
     $(function () {
+      // about us
       $(".section-elements").hide();
+      $(".about-us__title").on({
+        click: function () {
+          $(".about-us__elements").slideToggle();
+        },
+      });
+
+      // careers
+      $(".careers__title").on({
+        click: function () {
+          $(".careers__elements").slideToggle();
+        },
+      });
+      // social impact
+      $(".social-impact__title").on({
+        click: function () {
+          $(".social-impact__elements").slideToggle();
+        },
+      });
+      // for business partners
+      $(".business-partners__title").on({
+        click: function () {
+          $(".business-partners__elements").slideToggle();
+        },
+      });
+      // order + pcikup
+      $(".order-pickup__title").on({
+        click: function () {
+          $(".order-pickup__elements").slideToggle();
+        },
+      });
     });
-  } else {
-    wideScreen(browserWidth);
+  }
+  // if screen loads @ greater than 768px
+  else {
+    console.log(">768px");
+    // about us
+    $(".section-elements").show();
+    $(".section-title").off("click");
+
+    // careers
+    // social impact
+    // for business partners
+    // order + pcikup
   }
 }
 
-/* create function to trigger jquery */
+// MediaQueryList object
+const mql = window.matchMedia("(max-width: 768px)");
+console.log(mql);
 
-/* hide section elements if browser width < 768px +// show section
-  elements when section title is clicked */
+// call init() function @ runtime
+init(mql);
 
-// about us
-// $(".about-us__title").click(function () {
-//   $(".about-us__elements").slideToggle(function () {});
-// });
-
-// careers
-// $(".careers__title").click(function () {
-//   $(".careers__elements").slideToggle(function () {});
-// });
-
-// social impact
-// $(".social-impact__title").click(function () {
-//   $(".social-impact__elements").slideToggle(function () {});
-// });
-
-// business partners
-// $(".business-partners__title").click(function () {
-//   $(".business-partners__elements").slideToggle(function () {});
-// });
-
-// order and pickup
-// $(".order-pickup__title").click(function () {
-//   $(".order-pickup__elements").slideToggle(function () {});
-// });
-
-/* media query list objbect stores media query"max-width:768px...
-for mobile first */
-let browserWidth = window.matchMedia("(max-width: 767px)");
-// console.log(browserWidth);
-
-// invoke function
-init(browserWidth);
-// runJquery(browserWidth);
-
-// eventListener added to mediaQueryList object to listen for changes in browser width
-browserWidth.addListener(init); // addListener() deprecated? what replaced it?
+// add init function as listener for state change
+mql.addEventListener("change", init);
