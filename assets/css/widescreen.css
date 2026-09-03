@@ -23,4 +23,15 @@
   .dropdown-menu-toggle {
     display: none;
   }
+
+  .product-card{
+    width: 30%;
+    padding: 10px;
+    font-family: sans-serif;
+
+    .product-name{
+      font-size: 1.5rem;
+    }
+}
+
 }
