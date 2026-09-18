@@ -78,26 +78,11 @@ app.listen(PORT, () => {console.log(`Server running on http://localhost:${PORT}`
 // })
 
 // Route for Live Content from Supabase DB
-app.get('/admin/cms', async (req, res) => {
-    try {
-        // Fetch all rows from a table named "products" 
-        const { data: products, error } = await supabase
-        .from('products')
-        .select('*')
-        // .order('created_at', { ascending: false });
-
-        if (error) {
-            throw error;
-        }
-
-        // Render the EJS page and pass the data arrays
-        res.render('cms-dashboard', { products: products });
-        
-    } catch (error) {
-        console.error('Error fetching data from Supabase:', error.message);
-        res.status(500).send('Internal Server Error');
-    }
+app.get('/', async (req, res) => {
+    res.render("index.ejs")
 });
+
+
 
 // 1. Serve compiled static frontend assets from 'public' directory
 app.use(express.static(path.join(__dirname, "public")));
