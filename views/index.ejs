@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+     <!-- stylesheet -->
+      <!-- Note when serving css from public directory DO NOT include public in
+       href path as per below -->
+    <link rel="stylesheet" href="/mobile.css" />
+
+    <!-- stylesheet for media queries - widescreens -->
+    <link rel="stylesheet" href="/widescreen.css" />
+</head>
+<body>
+    <%# Bring in header partial and tells EJS to render raw, unescaped HTML %>
+     <%- include('./partials/styled_header') %> 
+
+     <%- include("partials/styled_body") %>
+
+    <%# Bring in footer partial %>
+     <%- include('partials/styled_footer') %> 
+</body>
+</html>
