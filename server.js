@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 3000;
 // Register template engine
 app.set('view engine', 'ejs')
 
+
 // Initialize Supabase DB client
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
@@ -46,6 +47,10 @@ app.get('/admin/cms', async (req, res) => {
     }
 });
 
+app.get('/', (req, res) => {
+    res.render('index');
+})
 
 // 1. Serve compiled static frontend assets from 'public' directory
 app.use(express.static(path.join(__dirname, "public")));
+
