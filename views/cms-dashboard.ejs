@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live CMS Control Panel</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f9f9f9; }
+        .card { background: white; padding: 15px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .card-img {width: 100% }
+        .status { padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        .published { background: #e6f4ea; color: #137333; }
+        .draft { background: #feefe3; color: #b06000; }
+    </style>
+</head>
+<body>
+    <h1>Live Content Management System</h1>
+    <p>Displaying fresh data directly from Supabase Postgres DB.</p>
+
+    <div class="content-list">
+        <!-- Loop over the database array sent from server.js -->
+        <% products.forEach(product => { %>
+            <div class="card">
+                <img class="card-img" src="https://gkfykmsmtkzbxzkwxoei.supabase.co/storage/v1/object/public/product-images/coffee_img.jpg" alt="DB_IMG" >
+                <p><%= product.name %></p>
+                <p><%= product.description %></p>
+                <p><%= product.price %></p>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>
