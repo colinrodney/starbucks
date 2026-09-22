@@ -20,9 +20,29 @@ const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
+const backend_url = "https://nodejs-express-server-ten.vercel.app/"
+
 // Start server listening on specified port
 app.listen(PORT, () => {console.log(`Server running on http://localhost:${PORT}`);
 });
+
+async function fetchData() {
+  try {
+    const response = await fetch(`${backend_url}`);
+    const data = await response.json();
+    console.log(data);
+    return data
+  } catch (error) {
+    console.error('Error fetching from backend:', error);
+  }
+
+}
+
+new_stuff = fetchData()
+
+app.get('/', async (req, res) => {
+    res.send(new_stuff)
+})
 
 // Route for Live Content from Supabase DB
 app.get('/admin/cms', async (req, res) => {

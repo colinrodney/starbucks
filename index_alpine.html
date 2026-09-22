@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- AlpineJS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starbucks Coffee</title> -->
+
+   
+  <body>
+    <h1 x-data="{message: `I love Alpine JS`}" x-text="message"></h1>
+
+    <div 
+        x-data="{
+            info: {},
+            isLoading: true,
+            async getInfo() {
+                this.isLoading = true;
+
+                try{
+                    let response = await fetch('https://nodejs-express-server-meiuy3v8u-c-renauld-rodney.vercel.app/')
+                    this.info = await response.json()
+                }
+
+                catch(error){
+                    this.info = `Error: ${error.message}`
+                }
+
+                finally{
+                    this.isLoading = false;
+                }
+            }
+        }"
+        x-init="getInfo()">
+
+        <template x-if="isLoading">
+            <p>Loading...</p>
+        </template>
+
+        <!-- Loading Indicator -->
+        <template x-if="!isLoading">
+            <p x-text="JSON.stringify(info)"></p>
+        </template>
+
+        
+    </div>
+    <!-- local js -->
+    <!-- <script src="assets/js/starbucks.js"></script> -->
+  </body>
+</html>
