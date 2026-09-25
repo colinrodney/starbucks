@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- AlpineJS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starbucks Coffee</title> -->
+
+   
+  <body>
+    <h1 x-data="{message: `I love Alpine JS`}" x-text="message"></h1>
+
+    <div x-data="fetchContent()" x-init="fetchData()">
+        
+        <template x-if="isLoading">
+            <p>Loading...</p>
+        </template>
+
+        <!-- Loading Indicator -->
+        <!-- <template x-if="!isLoading">
+            <p x-text="JSON.stringify(info)"></p>
+        </template> -->
+
+        <!-- Render IMAGE this is tied to fetchData() function initialized at opening tag of this div -->
+        <template x-if="!isLoading && !error">
+            <div>
+                
+                
+
+                <!-- 2. Injecting External HTML Markup Dynamically -->
+                <h3>Dynamic HTML Content:</h3>
+                <div x-html="htmlSnippet" class="prose-container"></div>
+            </div>
+        </template>
+
+        <template x-for="item in data" :key="item.id">
+            <div>
+                <!-- 1. Binding Image URL Dynamically -->
+                <img 
+                :src="item.image_url"
+                :alt="imageAlt" 
+                style="max-width: 33%; height: auto; border-radius: 8px;"
+                >
+                <p x-text="item.name"></p>
+                <p x-text="item.description"></p>
+                <p x-text="item.price"></p>
+            </div>
+        </template>
+    </div>
+
+
+        
+    </div>
+    <!-- local js -->
+    <!-- <script src="assets/js/starbucks.js"></script> -->
+     <script>
+    function fetchContent() {
+      return {
+        isLoading: true,
+        error: null,
+        imageUrl: '',
+        imageAlt: '',
+        htmlSnippet: '',
+        data:[], // manage state - accepts returned array of items from API
+
+        supabaseUrl: 'https://gkfykmsmtkzbxzkwxoei.supabase.co/rest/v1/products',
+        supabaseKey: 'sb_publishable_TPr5I48yz4ga-NKU_z5KIg_eASVbzu0',
+        
+
+        async fetchData() {
+          this.isLoading = true;
+          this.error = null;
+
+          try {
+            // Example 1: Fetching image & content meta from a JSON API/Supabase endpoint
+            // Replace endpoint with your actual Supabase REST API URL
+            const response = await fetch(this.supabaseUrl, {
+                headers:{
+                    'apiKey': this.supabaseKey,
+                    'Authorization': `Bearer ${this.supabaseKey}`,
+                    'Content-Type': `application/json`,
+                }
+            });
+            
+            if (!response.ok) throw new Error('Failed to load data');
+            
+            const data = await response.json();
+            this.data = data; // store the fetched array of items into the component's state
+            console.log(data) // data is name of object holding the fetched JSON response from API
+
+            // Populate the image source from API response
+            this.imageUrl = data.url;
+            this.imageAlt = data.title;
+
+            console.log(this.imageUrl)
+
+            // // Example 2: Setting raw HTML content dynamically - THIS ACTUALLY RETURNS HTML CONTENT!
+            // (e.g. pulled from a DB column or fetched via an endpoint response)
+            this.htmlSnippet = `
+              <div style="padding: 10px; background: #f0f4f8; border-left: 4px solid #0070f3;">
+                <p><strong>Database Notice:</strong> ${data[0].name}</p>
+                <small>Fetched dynamically via Alpine.js</small>
+              </div>
+            `;
+
+          } catch (err) {
+            this.error = err.message;
+          } finally {
+            this.isLoading = false;
+          }
+        }
+      };
+    }
+  </script>
+  </body>
+</html>
