@@ -1,3 +1,5 @@
+<!-- index.ejs MUST BE SERVED w/ NODE.JS backend server active.
+ EJS files CANNOT be served via github pages! -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,11 +18,11 @@
      <!-- stylesheet -->
       <!-- Note when serving css from public directory DO NOT include public in
        href path as per below --
-       NOTE: github pages cannotMUST BE SERVED w/ NODE.JS backend server>
-    <link rel="stylesheet" href="/mobile.css" /> 
-
-    <!-- stylesheet for media queries - widescreens -->
-    <link rel="stylesheet" href="/widescreen.css" />  MUST BE SERVED w/ NODE.JS backend server
+       <link rel="stylesheet" href="/mobile.css" /> 
+       
+       <!-- stylesheet for media queries - widescreens -->
+       <link rel="stylesheet" href="/widescreen.css" />  
+       <link rel="stylesheet" href="/mobile.css" /> 
 </head>
 <body>
     <%# Bring in header partial and tells EJS to render raw, unescaped HTML %>
