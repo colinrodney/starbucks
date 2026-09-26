@@ -20,9 +20,6 @@ const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-// Start server listening on specified port
-app.listen(PORT, () => {console.log(`Server running on http://localhost:${PORT}`);
-});
 
 // Route for Live Content from Supabase DB
 app.get('/admin/cms', async (req, res) => {
@@ -49,3 +46,13 @@ app.get('/admin/cms', async (req, res) => {
 
 // 1. Serve compiled static frontend assets from 'public' directory
 app.use(express.static(path.join(__dirname, "public")));
+
+
+// Keep local port listener for running 'npm start or node server.js' on local machine:
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
+
+// Export express app (required for vercel deployments!)
+module.exports = app;
