@@ -21,6 +21,10 @@ const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 
+app.get('/', (req, res) => {
+    res.render('index');
+});
+
 // Route for Live Content from Supabase DB
 app.get('/admin/cms', async (req, res) => {
     try {
