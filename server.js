@@ -13,7 +13,8 @@ const app = express()
 const PORT = process.env.PORT || 3000;
 
 // Register template engine
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
+app.set("views", __dirname + "/views");
 
 // Initialize Supabase DB client
 const supabaseUrl = process.env.SUPABASE_URL;
