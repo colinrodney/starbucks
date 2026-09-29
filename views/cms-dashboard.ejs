@@ -13,6 +13,10 @@
     </style>
 </head>
 <body>
+    <%# Bring in header partial and tells EJS to render raw, unescaped HTML %>
+     <%- include('./partials/styled_header') %> 
+     <%- include('./partials/styled_footer') %> 
+
     <h1>Live Content Management System</h1>
     <p>Displaying fresh data directly from Supabase Postgres DB.</p>
 
