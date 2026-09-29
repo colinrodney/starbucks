@@ -16,11 +16,16 @@
      <!-- stylesheet -->
       <!-- Note when serving css from public directory DO NOT include public in
        href path as per below -->
-    <!-- <link rel="stylesheet" href="/mobile.css" /> MUST BE SERVED w/ NODE.JS backend server -->
-    <link rel="stylesheet" href="https://github.com/colinrodney/starbucks/public/mobile.css" />
+
+       <!--MUST BE SERVED w/ NODE.JS backend server -->
+    <link rel="stylesheet" href="/mobile.css" /> 
+    <link rel="stylesheet" href="/widescreen.css" />
+
+    <!--MUST BE SERVED w/ NODE.JS backend server running on localhost -->
+    <!-- stylesheet for media queries - mobile devices/ smalled screens -->
+    <!-- <link rel="stylesheet" href="https://github.com/colinrodney/starbucks/public/mobile.css" /> -->
 
     <!-- stylesheet for media queries - widescreens -->
-    <!-- <link rel="stylesheet" href="/widescreen.css" />  MUST BE SERVED w/ NODE.JS backend server-->
     <link rel="stylesheet" href="https://github.com/colinrodney/starbucks/public/widescreen.css" />
 </head>
 <body>
