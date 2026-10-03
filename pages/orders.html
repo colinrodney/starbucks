@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self' http://localhost https://gkfykmsmtkzbxzkwxoei.supabase.co/rest/v1/orders">
+
+    <title>Place an Order</title>
+    <!-- <script src='/eventHandlers.js'></script> -->
+  </head>
+  
+  <body>
+    <!-- index.html / OrderForm Component -->
+    <form id="starbucksOrderForm" class="order-form">
+      <div class="form-group">
+        <label for="customerName">Customer Name</label>
+        <input type="text" id="customerName" placeholder="e.g. Alex" required />
+      </div>
+
+      <div class="form-group">
+        <label for="drinkType">Select Beverage</label>
+        <select id="drinkType" required>
+          <option value="" disabled selected>-- Choose a Drink --</option>
+          <option value="Caffè Latte">Caffè Latte</option>
+          <option value="Iced Americano">Iced Americano</option>
+        </select>
+      </div>
+      <button type="submit" id="submitBtn">Place Order</button>
+    </form>
+    <script src='/eventHandlers.js' defer></script>
+  </body>
+</html>
