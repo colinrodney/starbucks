@@ -56,8 +56,9 @@ app.get('/admin/cms', async (req, res) => {
 
 // Navigate: to orders page
 app.get('/orders', (req, res) => {
-    res.sendFile(`C:/Users/Cessn/OneDrive/Desktop/git_cloned_repositories/starbucks/pages/orders.html`);
-});
+    // res.sendFile(`C:/Users/Cessn/OneDrive/Desktop/git_cloned_repositories/starbucks/pages/orders.html`);
+  res.sendFile(path.join(__dirname, 'pages', 'orders.html'));
+  });
 
 // CREATE / Place new order
 app.post('/create_order', async (req, res) => {
