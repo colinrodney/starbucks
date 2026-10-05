@@ -8,7 +8,7 @@ async function handleOrderSubmit(event) {
   const orderPayload = {
     customer_name: document.getElementById('customerName').value,
     drinkType: document.getElementById('drinkType').value,
-    // size: document.getElementById('itemSize').value,
+    size: document.getElementById('drinkSize').value,
     // instructions: document.getElementById('specialInstructions').value,
   };
 

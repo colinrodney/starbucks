@@ -12,11 +12,14 @@
   <body>
     <!-- index.html / OrderForm Component -->
     <form id="starbucksOrderForm" class="order-form">
+
+      <!-- Customer name -->
       <div class="form-group">
         <label for="customerName">Customer Name</label>
         <input type="text" id="customerName" placeholder="e.g. Alex" required />
       </div>
 
+      <!-- Select beverage -->
       <div class="form-group">
         <label for="drinkType">Select Beverage</label>
         <select id="drinkType" required>
@@ -25,6 +28,17 @@
           <option value="Iced Americano">Iced Americano</option>
         </select>
       </div>
+
+      <!-- Select size -->
+      <div class="form-group">
+        <label for="sizeSelect">Size</label>
+        <select id="drinkSize" required>
+          <option value="Tall">Tall (12 oz)</option>
+          <option value="Grande" selected>Grande (16 oz)</option>
+          <option value="Venti">Venti (24 oz)</option>
+        </select>
+      </div>
+
       <button type="submit" id="submitBtn">Place Order</button>
     </form>
     <script src='/eventHandlers.js' defer></script>
