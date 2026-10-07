@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src-elem 'self' *.jsdelivr.net github.com; script-src 'self'; connect-src 'self' http://localhost https://gkfykmsmtkzbxzkwxoei.supabase.co/rest/v1/orders *.jsdelivr.net github.com; img-src *.postimg.cc ">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+     <!-- stylesheet -->
+      <!-- Note when serving css from public directory DO NOT include public in
+       href path as per below -->
+
+       <!--MUST BE SERVED w/ NODE.JS backend server -->
+    <link rel="stylesheet" href="/mobile.css" /> 
+    <link rel="stylesheet" href="/widescreen.css" />
+
+    <!--MUST BE SERVED w/ NODE.JS backend server running on localhost -->
+    <!-- stylesheet for media queries - mobile devices/ smalled screens -->
+    <!-- <link rel="stylesheet" href="https://github.com/colinrodney/starbucks/public/mobile.css" /> -->
+
+    <!-- stylesheet for media queries - widescreens -->
+    <!-- <link rel="stylesheet" href="https://github.com/colinrodney/starbucks/public/widescreen.css" /> -->
+    <title>Place an Order</title>
+    <!-- <script src='/eventHandlers.js'></script> -->
+  </head>
+  
+  <body>
+    <%- include('./partials/styled_header') %> 
+    
+    <!-- index.html / OrderForm Component -->
+    <form id="starbucksOrderForm" class="order-form">
+
+      <!-- Customer name -->
+      <div class="form-group">
+        <label for="customerName">Customer Name</label>
+        <input type="text" id="customerName" placeholder="e.g. Alex" required />
+      </div>
+
+      <!-- Select beverage -->
+      <div class="form-group">
+        <label for="drinkType">Select Beverage</label>
+        <select id="drinkType" required>
+          <option value="" disabled selected>-- Choose a Drink --</option>
+          <option value="Caffè Latte">Caffè Latte</option>
+          <option value="Iced Americano">Iced Americano</option>
+        </select>
+      </div>
+
+      <!-- Select size -->
+      <div class="form-group">
+        <label for="sizeSelect">Size</label>
+        <select id="drinkSize" required>
+          <option value="Tall">Tall (12 oz)</option>
+          <option value="Grande" selected>Grande (16 oz)</option>
+          <option value="Venti">Venti (24 oz)</option>
+        </select>
+      </div>
+
+      <button type="submit" id="submitBtn">Place Order</button>
+    </form>
+    <script src='/eventHandlers.js' defer></script>
+  </body>
+</html>
